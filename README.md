@@ -70,29 +70,6 @@ or
 npm run dev
 ```
 
-## Install prisma
-
-```bash
- npm install prisma @prisma/client
-```
-
-## Initialize prisma
-
-```bash
-npx prisma init --datasource-provider mysql
-```
-
-## Run prisma migrate
-
-```bash
-npx prisma migrate dev --name init
-```
-
-## Generate prisma client
-
-```bash
-npx prisma generate
-```
 
 ## Docker
 
