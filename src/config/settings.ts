@@ -1,9 +1,7 @@
 import winston from "winston";
 import dotenv from "dotenv";
 import express, { Express } from "express";
-import { PrismaClient } from "@prisma/client";
 import morgan from "morgan";
-// import expressWinston from "express-winston";
 
 import "../loggers/base-logger";
 
@@ -20,32 +18,12 @@ export const app: Express = express();
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
-app.use(morgan("[:date[clf]] :method :url HTTP/:http-version :status :res[content-length] - :response-time ms"));
-
 // Middleware to log incoming requests and their duration.
-// app.use(
-//   expressWinston.logger({
-//     transports: [new winston.transports.Console()],
-//     format: winston.format.combine(winston.format.colorize(), winston.format.json(), winston.format.prettyPrint()),
-//   })
-// );
 
-// Middleware function to log incoming requests and their duration.
-// app.use((req, res, next) => {
-//   const profiler = appLogger.startTimer();
-
-//   res.on("finish", () => {
-//     profiler.done({ message: `${req.method} ${req.url}` });
-//   });
-
-//   next();
-// });
+app.use(morgan("[:date[clf]] :method :url HTTP/:http-version :status :res[content-length] - :response-time ms"));
 
 //Express router instance.
 export const router = express.Router();
-
-// Prisma client instance for interacting with the database.
-export const prisma = new PrismaClient();
 
 /**
  * Function to start the server listener on the specified port.
