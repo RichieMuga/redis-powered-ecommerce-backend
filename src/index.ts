@@ -11,17 +11,18 @@ import {
   preloadProductsInCategoryCache,
 } from "./helpers/cache/cachePreloader";
 
-// test api
+// TODO: Version individual respective routes if changes occur
+// api routes
 app.use("/api/v1", baseRouter);
+app.use("/api/v1", productRouter);
+app.use("/api/v1", categoryRouter);
+app.use("/api/v1", cartRouter);
+app.use("/api/v1", userRouter);
 
 // preloaded data from redis cache
 preloadProductsCache();
 preloadCategoriesCache();
 preloadProductsInCategoryCache("electronics");
 
-app.use("/api/v1", productRouter);
-app.use("/api/v1", categoryRouter);
-app.use("/api/v1", cartRouter);
-app.use("/api/v1", userRouter);
 
 serverListener();
