@@ -40,7 +40,7 @@ There are 2 ways to install this application
   - Using githib
   - Using docker
 
-## Using Github
+## Installation Using Github
 1. Clone the repository:
 
 ```
@@ -69,7 +69,7 @@ npm install
 npm run dev
 ```
 
-## Using Docker
+## Installation Using Docker
 
 ### Build Docker Image
 
