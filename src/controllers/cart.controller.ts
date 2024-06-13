@@ -97,7 +97,7 @@ export const addCart = async (
     // Invalidate userCarts cache
     await deleteCache(userCartCacheKey);
 
-    return res.status(201).json(newCart);
+    return res.status(201).json({message:"cart added successfully"});
   } catch (error) {
     next(error);
   }
