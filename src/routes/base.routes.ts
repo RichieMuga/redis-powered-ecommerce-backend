@@ -1,7 +1,9 @@
-import { router } from "../config/settings";
+import { Router } from "express";
 
 import { baseController } from "../controllers/base.controller";
 
-router.get("/status", baseController);
+const router = Router()
+
+router.get("/api/v1/status", baseController);
 
 export default router;
