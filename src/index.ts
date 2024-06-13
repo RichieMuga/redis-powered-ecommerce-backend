@@ -13,7 +13,7 @@ import {
 
 // TODO: Version individual respective routes if changes occur
 // api routes
-app.use("/api/v1", baseRouter);
+app.use("/", baseRouter);
 app.use("/api/v1", productRouter);
 app.use("/api/v1", categoryRouter);
 app.use("/api/v1", cartRouter);
