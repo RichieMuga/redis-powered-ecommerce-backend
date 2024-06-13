@@ -1,6 +1,6 @@
 import winston from "winston";
 import dotenv from "dotenv";
-import express, { Express } from "express";
+import express, { Application, Express } from "express";
 import morgan from "morgan";
 
 import "../loggers/base-logger";
@@ -13,7 +13,7 @@ const serverLogger = winston.loggers.get("ServerLogger");
 // const appLogger = winston.loggers.get("AppLogger");
 
 // Express application instance.
-export const app: Express = express();
+export const app: Application = express();
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
@@ -30,7 +30,7 @@ export const router = express.Router();
  * @param {string | number} port - The port number to listen on.
  * @returns {void}
  */
-export function serverListener(port: string | number = process.env.PORT || 3000) {
+export function serverListener(port: string | number = process.env.PORT || 3000): void {
   try {
     app.listen(port, () => {
       // serverLogger.info(`[server]: Server is running at http://localhost:${port}`);

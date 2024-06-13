@@ -46,3 +46,13 @@ export const deleteCache = async (key: string): Promise<void> => {
     throw err;
   }
 };
+
+export const incrementCache = async (key: string): Promise<void> => {
+  await connectRedis();
+  try {
+    await redisClient.incr(key);
+  } catch (err) {
+    console.error('Redis incr error:', err);
+    throw err;
+  }
+};

@@ -128,3 +128,19 @@ export const getAllProducts = async (req: Request, res: Response, next: NextFunc
   }
 };
 
+// get product interactions
+export const getProductInteractions = async (req: Request, res: Response, next: NextFunction) => {
+  const productId = req.params.productId;
+  const viewKey = `product:${productId}:views`;
+
+  try {
+    const views = await getCache(viewKey);
+
+    return res.status(200).json({
+      productId,
+      views: views ? parseInt(views, 10) : 0,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
