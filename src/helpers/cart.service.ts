@@ -22,7 +22,7 @@ export const deleteCartById = async (id: string) => {
   return response.data;
 };
 
-export const addNewCart = async (newData: object) => {
+export const addNewCart = async (newData: any) => {
   const response = await axios.post(
     "https://fakestoreapi.com/products",
     newData,
